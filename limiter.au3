@@ -1,6 +1,3 @@
-#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_Icon=..\..\..\Pictures\Icon\Chrisl21-Minecraft-3D-Grass.ico
-#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #include <Misc.au3>
 #include <MsgBoxConstants.au3>
 Local $hDLL = DllOpen("user32.dll")
