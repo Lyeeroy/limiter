@@ -15,7 +15,9 @@ $key = '{F2}'
 HotKeySet('{F1}', '_ex')
 HotKeySet('{F3}', '_help')
 
-;~ _help()
+;~ Run(@ScriptDir & "\FAutoClicker.au3")
+
+_help()
 _main()
 
 Func _main()
@@ -53,17 +55,17 @@ Func _main()
 EndFunc   ;==>_main
 
 Func _help()
-	MsgBox(0, @ScriptName, '[F1] - QUIT!' & @CRLF & '[F2] - PAUSE/REFRESH' & @CRLF & '[F3] - SHOW THIS TOOL TIP AGAIN' & @CRLF & '-------------------------------------------------------------------' & @CRLF & '[SHIFT DOWN] - Get first position of the mouse' & @CRLF & '[SHIFT UP] Get second position of the mouse and start mouse loop' & @CRLF & '[SHIFT DOWN again] - Stop mouse loop process if its running' & @CRLF & '[F] - Auto clicker (Terrain up/down)')
+	MsgBox(0, @ScriptName, '[F1] - QUIT!' & @CRLF & '[F2] - PAUSE/REFRESH' & @CRLF & '[F3] - SHOW THIS TOOL TIP AGAIN' & @CRLF & @CRLF & '[SHIFT DOWN] - Get first position of the mouse' & @CRLF & '[SHIFT UP] Get second position of the mouse and start mouse loop' & @CRLF & '[SHIFT DOWN again] - Stop mouse loop process if its running' & @CRLF & '[F] - Auto clicker (Terrain up/down)' & @CRLF & @CRLF & '[Q] - If in mouse loop: decrease height of terrain ' & @CRLF & '[W] - If in mouse loop: Increase height of terrain ')
 EndFunc   ;==>_help
 
 Func _cutloop()
 	Do
 		If _IsPressed("51", $hDLL) Then ;51 Q , 57 W
 			MouseMove($pointA[0], $pointA[1], $speed)
-			Mouseclick('left')
+			MouseClick('left')
 			Sleep($sleepSpeed)
 			MouseMove($pointB[0], $pointB[1], $speed)
-			Mouseclick('left')
+			MouseClick('left')
 			Sleep($sleepSpeed)
 			While _IsPressed("51", $hDLL)
 				Sleep(50)
@@ -72,24 +74,23 @@ Func _cutloop()
 
 		ElseIf _IsPressed("57", $hDLL) Then ;51 Q , 57 W
 			MouseMove($pointA[0], $pointA[1], $speed)
-			Mouseclick('left')
+			MouseClick('left')
 			Sleep($sleepSpeed)
 			MouseMove($pointB[0], $pointB[1], $speed)
-			Mouseclick('left')
+			MouseClick('left')
 			Sleep($sleepSpeed)
 			While _IsPressed("57", $hDLL)
 				Sleep(50)
 			WEnd
 			Send('e')
-			
 		Else
+
 			MouseMove($pointA[0], $pointA[1], $speed)
 			MouseDown('left')
 			Sleep($sleepSpeed)
 			MouseMove($pointB[0], $pointB[1], $speed)
 			MouseUp('left')
 			Sleep($sleepSpeed)
-			
 		EndIf
 	Until _IsPressed("10", $hDLL)
 	ConsoleWrite("_Loop executed" & @CRLF)
