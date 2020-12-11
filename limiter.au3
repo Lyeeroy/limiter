@@ -81,14 +81,15 @@ Func _cutloop()
 				Sleep(50)
 			WEnd
 			Send('e')
+			
 		Else
-
 			MouseMove($pointA[0], $pointA[1], $speed)
 			MouseDown('left')
 			Sleep($sleepSpeed)
 			MouseMove($pointB[0], $pointB[1], $speed)
 			MouseUp('left')
 			Sleep($sleepSpeed)
+			
 		EndIf
 	Until _IsPressed("10", $hDLL)
 	ConsoleWrite("_Loop executed" & @CRLF)
