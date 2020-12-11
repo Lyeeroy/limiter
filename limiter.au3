@@ -15,8 +15,6 @@ $key = '{F2}'
 HotKeySet('{F1}', '_ex')
 HotKeySet('{F3}', '_help')
 
-;~ Run(@ScriptDir & "\FAutoClicker.au3")
-
 ;~ _help()
 _main()
 
