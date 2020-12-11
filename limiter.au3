@@ -13,7 +13,7 @@ $sleepSpeed = 33
 $key = '{F2}'
 
 HotKeySet('{F1}', '_ex')
-HotKeySet('{F2}', '_help')
+HotKeySet('{F3}', '_help')
 
 ;~ Run(@ScriptDir & "\FAutoClicker.au3")
 
