@@ -6,18 +6,21 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #include <Misc.au3>
 #include <MsgBoxConstants.au3>
+#include <EssentialUDF.au3>
+
 Local $hDLL = DllOpen("user32.dll")
 
 $speed = 0
 $sleepSpeed = 33
 $key = '{F2}'
+$title = '1.11.2'
 
 HotKeySet('{F1}', '_ex')
 HotKeySet('{F3}', '_help')
 
 ;~ Run(@ScriptDir & "\FAutoClicker.au3")
 
-_help()
+;~ _help()
 _main()
 
 Func _main()
@@ -86,9 +89,11 @@ Func _cutloop()
 		Else
 
 			MouseMove($pointA[0], $pointA[1], $speed)
+			_cClick($pointA[0], $pointA[1], 'left', $title)
 			MouseDown('left')
 			Sleep($sleepSpeed)
 			MouseMove($pointB[0], $pointB[1], $speed)
+			_cClick($pointA[0], $pointA[1], 'left', $title)
 			MouseUp('left')
 			Sleep($sleepSpeed)
 		EndIf
